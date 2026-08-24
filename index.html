@@ -2,13 +2,14 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Undangan</title>
 <style>
-  body{margin:0; text-align:center; font-family:sans-serif; background:#FDFBF7}
-  .btn{background:#C9A961; color:white; padding:16px 32px; border-radius:50px; text-decoration:none; font-size:18px; font-weight:bold; border:none; cursor:pointer; box-shadow:0 4px 10px rgba(0,0,0,0.2)}
+  body{margin:0; text-align:center; padding:60px 20px; font-family:sans-serif; background:#FDFBF7}
+  .btn{background:#C9A961; color:white; padding:16px 32px; border-radius:50px; border:none; cursor:pointer; font-size:18px; font-weight:bold}
+  .btn2{background:#8B7355; color:white; padding:14px 28px; border-radius:50px; border:none; cursor:pointer; font-size:16px; font-weight:bold; margin-top:15px}
   #player{position:absolute; width:1px; height:1px; overflow:hidden}
   #cover{position:fixed; top:0; left:0; width:100%; height:100%; background:#FDFBF7; display:flex; justify-content:center; align-items:center; z-index:999}
-  #isi{padding:60px 20px;}
-  #google-site-frame{width:100%; height:100vh; border:none; display:none;} /* disembunyiin dulu */
+  #isi{padding-top:40px; display:none;}
 </style>
 </head>
 <body>
@@ -21,32 +22,30 @@
       frameborder="0" allow="autoplay"></iframe>
     </div>
     
+    <h2 style="color:#C9A961;">Undangan Pernikahan</h2>
     <button class="btn" onclick="bukaUndangan()">🎵 BUKA UNDANGAN</button>
-    <p style="font-size:12px; color:#666; margin-top:10px;">Klik untuk mulai musik</p>
   </div>
 </div>
 
 <div id="isi">
-  <h1>Sedang mengundang Kamu</h1>
-  <p>Mohon tunggu</p>
-  <p style="color:#888;">Scroll ke bawah untuk lihat undangan lengkap 👇</p>
-
-  <!-- INI TEMPAT GOOGLE SITES NYA -->
-  <iframe id="google-site-frame" 
-    src="https://sites.google.com/view/ctonchoice/undangan">
-  </iframe>
+  <h1>Terima Kasih Sudah Datang</h1>
+  <p>Silakan buka undangan lengkap di bawah</p>
+  <button class="btn2" onclick="keGoogleSites()">📜 Buka Undangan Lengkap</button>
+  <p style="font-size:12px; color:#666;">Musik akan tetap jalan di halaman ini</p>
 </div>
 
 <script>
   function bukaUndangan(){
     // 1. Unmute musik
-    document.querySelector('#player iframe').src = "https://www.youtube.com/embed/--FGrXJjPqk?autoplay=1&loop=1&playlist=--FGrXJjPqk";
+    document.querySelector('iframe').src = "https://www.youtube.com/embed/--FGrXJjPqk?autoplay=1&loop=1&playlist=--FGrXJjPqk";
     // 2. Hilangkan cover
     document.getElementById('cover').style.display = 'none';
-    // 3. Tampilkan iframe Google Sites
-    document.getElementById('google-site-frame').style.display = 'block';
-    // 4. Scroll ke isi undangan
-    document.getElementById('isi').scrollIntoView({behavior: 'smooth'});
+    // 3. Munculkan isi + tombol ke Google Sites
+    document.getElementById('isi').style.display = 'block';
+  }
+
+  function keGoogleSites(){
+    window.open("https://sites.google.com/view/ctonchoice/undangan", "_blank");
   }
 </script>
 </body>
