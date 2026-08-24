@@ -3,10 +3,12 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
-  body{margin:0; text-align:center; padding:60px 20px; font-family:sans-serif; background:#FDFBF7}
+  body{margin:0; text-align:center; font-family:sans-serif; background:#FDFBF7}
   .btn{background:#C9A961; color:white; padding:16px 32px; border-radius:50px; text-decoration:none; font-size:18px; font-weight:bold; border:none; cursor:pointer; box-shadow:0 4px 10px rgba(0,0,0,0.2)}
   #player{position:absolute; width:1px; height:1px; overflow:hidden}
   #cover{position:fixed; top:0; left:0; width:100%; height:100%; background:#FDFBF7; display:flex; justify-content:center; align-items:center; z-index:999}
+  #isi{padding:60px 20px;}
+  #google-site-frame{width:100%; height:100vh; border:none; display:none;} /* disembunyiin dulu */
 </style>
 </head>
 <body>
@@ -24,18 +26,26 @@
   </div>
 </div>
 
-<div id="isi" style="padding-top:100px;">
+<div id="isi">
   <h1>Sedang mengundang Kamu</h1>
   <p>Mohon tunggu</p>
+  <p style="color:#888;">Scroll ke bawah untuk lihat undangan lengkap 👇</p>
+
+  <!-- INI TEMPAT GOOGLE SITES NYA -->
+  <iframe id="google-site-frame" 
+    src="https://sites.google.com/view/ctonchoice/undangan">
+  </iframe>
 </div>
 
 <script>
   function bukaUndangan(){
     // 1. Unmute musik
-    document.querySelector('iframe').src = "https://www.youtube.com/embed/--FGrXJjPqk?autoplay=1&loop=1&playlist=--FGrXJjPqk";
+    document.querySelector('#player iframe').src = "https://www.youtube.com/embed/--FGrXJjPqk?autoplay=1&loop=1&playlist=--FGrXJjPqk";
     // 2. Hilangkan cover
     document.getElementById('cover').style.display = 'none';
-    // 3. Scroll ke isi undangan
+    // 3. Tampilkan iframe Google Sites
+    document.getElementById('google-site-frame').style.display = 'block';
+    // 4. Scroll ke isi undangan
     document.getElementById('isi').scrollIntoView({behavior: 'smooth'});
   }
 </script>
