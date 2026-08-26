@@ -4,9 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Undangan Digital</title>
+
+  <!-- IMPORT FONT DARI GOOGLE -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-    body { background: #fdf6f0; color: #333; text-align: center; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { 
+      background: #fdf6f0; 
+      color: #333; 
+      text-align: center; 
+      font-family: 'Poppins', sans-serif; /* DEFAULT TEKS = POPPINS */
+      font-weight: 400;
+    }
     
     #cover {
       position: fixed; top: 0; left: 0; width: 100%; height: 100%;
@@ -14,44 +26,57 @@
       display: flex; flex-direction: column; justify-content: center; align-items: center;
       color: white; z-index: 999; transition: opacity 1s ease;
     }
-    #cover h1 { font-size: 2.5rem; margin-bottom: 10px; }
-    .btn-buka { background: #d4a373; color: white; padding: 15px 40px; border: none; border-radius: 50px; font-size: 1.1rem; cursor: pointer; font-weight: bold; }
-
-    #content {
-      display: none;
-      padding: 40px 20px;
-      max-width: 700px;
-      margin: auto;
-      animation: fadeIn 1.5s;
+    #cover h1 { 
+      font-family: 'Playfair Display', serif; /* JUDUL = PLAYFAIR */
+      font-size: 2.8rem; 
+      margin-bottom: 10px; 
+      font-weight: 700;
     }
-    @keyframes fadeIn { from {opacity: 0;} to {opacity: 1;} }
-
-    /* STYLE UNTUK TEKS & GAMBAR */
-    .foto-mempelai {
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 5px solid #d4a373;
-      margin-bottom: 20px;
+    #cover p { font-size: 1.2rem; font-weight: 300; }
+    .btn-buka { 
+      background: #d4a373; 
+      color: white; 
+      padding: 15px 40px; 
+      border: none; 
+      border-radius: 50px; 
+      font-size: 1.1rem; 
+      cursor: pointer; 
+      font-weight: 500;
+      font-family: 'Poppins', sans-serif;
+      margin-top: 20px;
     }
-    .nama { font-size: 2rem; color: #b08968; font-weight: bold; margin: 10px 0; }
-    .tanggal { font-size: 1.2rem; margin-bottom: 30px; color: #777; }
-    .ucapan { font-size: 1rem; line-height: 1.8; margin-bottom: 30px; }
+
+    #content { display: none; padding: 40px 20px; max-width: 700px; margin: auto; }
     
-    .form-container {
-      background: white; padding: 20px; border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      margin-top: 30px;
+    .foto-mempelai { width: 200px; height: 200px; border-radius: 50%; object-fit: cover; border: 5px solid #d4a373; margin-bottom: 20px; }
+    
+    .nama { 
+      font-family: 'Playfair Display', serif; /* NAMA = PLAYFAIR */
+      font-size: 2.5rem; 
+      color: #b08968; 
+      font-weight: 700; 
+      margin: 10px 0;
     }
-    .iframe-wrapper { width: 100%; height: 1200px; }
-    .iframe-wrapper iframe { width: 100%; height: 100%; border: none; }
+    .tanggal { font-size: 1.1rem; margin-bottom: 30px; color: #777; font-weight: 300; }
+    .ucapan { font-size: 1rem; line-height: 1.8; margin-bottom: 30px; font-weight: 400; }
+    
+    h2 { 
+      font-family: 'Playfair Display', serif; /* SEMUA H2 = PLAYFAIR */
+      color: #b08968; 
+      font-weight: 700;
+    }
+    
+    .form-container { background: white; padding: 15px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+    .iframe-wrapper { width: 100%; min-height: 1300px; }
+    .iframe-wrapper iframe { width: 100%; height: 1300px; border: none; }
+    .btn-link { display: block; margin-top: 10px; color: #d4a373; font-weight: 500; text-decoration: none; }
 
     #btn-musik {
       position: fixed; bottom: 20px; right: 20px; background: #d4a373;
       color: white; border: none; width: 50px; height: 50px; border-radius: 50%;
       font-size: 24px; cursor: pointer; z-index: 1000; display: none;
     }
+    footer { padding:30px; color:#777; font-weight: 300; }
   </style>
 </head>
 <body>
@@ -63,35 +88,24 @@
   </div>
 
   <div id="content">
-    
-    <!-- 1. TAMBAH GAMBAR -->
     <img src="foto-kalian.jpg" alt="Foto Mempelai" class="foto-mempelai">
-
-    <!-- 2. TAMBAH TEKS -->
-    <h2 class="nama">Andi & Sinta</h2> <!-- GANTI NAMA -->
-    <p class="tanggal">Minggu, 15 November 2026</p> <!-- GANTI TANGGAL -->
-    
-    <p class="ucapan">
-      Dengan memohon rahmat dan ridho Allah SWT, <br>
-      kami mengundang Bapak/Ibu/Saudara/i <br>
-      untuk hadir di acara pernikahan kami.
-    </p> <!-- GANTI UCAPAN -->
-
+    <h2 class="nama">Andi & Sinta</h2>
+    <p class="tanggal">Minggu, 15 November 2026</p>
+    <p class="ucapan">Dengan memohon rahmat Allah SWT, <br> kami mengundang Bapak/Ibu/Saudara/i <br> untuk hadir di acara pernikahan kami.</p>
     <hr style="margin: 40px 0; border: none; border-top: 1px solid #ddd;">
 
-    <!-- 3. GOOGLE FORM RSVP -->
-    <h2 style="color: #b08968; margin-bottom: 20px;">RSVP Kehadiran</h2>
+    <h2 style="margin-bottom: 20px;">RSVP Kehadiran</h2>
     <div class="form-container">
       <div class="iframe-wrapper">
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfwvSaSDbl5eOLO5cM_pOx2OCgB-Vd5IPyX1vqBI_1WmZiFzQ/viewform?embedded=true">Memuat...</iframe>
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfwvSaSDbl5eOLO5cM_pOx2OCgB-Vd5IPyX1vqBI_1WmZiFzQ/viewform?embedded=true"></iframe>
       </div>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSfwvSaSDbl5eOLO5cM_pOx2OCgB-Vd5IPyX1vqBI_1WmZiFzQ/viewform" target="_blank" class="btn-link">Form tidak muncul? Klik di sini</a>
     </div>
-
-    <footer style="padding:30px; color:#777;"><p>Terima Kasih ❤️</p></footer>
+    <footer><p>Terima Kasih ❤️</p></footer>
   </div>
 
   <button id="btn-musik" onclick="toggleMusik()">🔊</button>
-  <audio id="musik" loop></audio>
+  <audio id="musik" loop preload="auto"></audio>
 
   <script>
     let musikNyala = true;
@@ -104,8 +118,12 @@
         document.getElementById('content').style.display = 'block';
         document.getElementById('btn-musik').style.display = 'block';
       }, 1000);
-      audio.src = "musik.mp3"; 
-      audio.play();
+
+      audio.src = "Ten2Five - Hanya Untukmu (Official Music Video) - GP Records128kb.mp3"; 
+      audio.play().catch(error => {
+        console.log("Musik gagal:", error);
+        document.getElementById('btn-musik').innerHTML = "❌";
+      });
     }
 
     function toggleMusik() {
