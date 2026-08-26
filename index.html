@@ -117,6 +117,89 @@
 <p>Profile Mempelai Pria	<br>Nama Lengkap</p>	<br>Putra dari Bapak & Ibu</p>	<br>Profile Mempelai Wanita</p>	<br>Nama Lengkap</p>	<br>Putri dari Bapak & Ibu</p>
     <hr style="margin: 40px 0; border: none; border-top: 1px solid #ddd;">
 
+<!-- HTML COUNTDOWN -->
+<div class="countdown-box">
+  <h3>Menuju Hari Bahagia</h3>
+  <div id="countdown">
+    <div class="time"><span id="hari">00</span><small>Hari</small></div>
+    <div class="time"><span id="jam">00</span><small>Jam</small></div>
+    <div class="time"><span id="menit">00</span><small>Menit</small></div>
+    <div class="time"><span id="detik">00</span><small>Detik</small></div>
+  </div>
+</div>
+
+<!-- CSS COUNTDOWN -->
+<style>
+.countdown-box {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  margin: 30px 0;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+}
+.countdown-box h3 {
+  font-family: 'Playfair Display', serif;
+  color: #b08968;
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+}
+#countdown {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap; /* biar rapi di HP */
+}
+.time {
+  background: #d4a373;
+  color: white;
+  padding: 15px 10px;
+  border-radius: 8px;
+  min-width: 70px;
+}
+.time span { 
+  display: block; 
+  font-size: 1.8rem; 
+  font-weight: 700; 
+}
+.time small { 
+  font-size: 0.8rem; 
+  font-weight: 300; 
+}
+</style>
+
+<!-- JAVASCRIPT COUNTDOWN -->
+<script>
+// GANTI TANGGAL ACARA DI SINI
+// Format: new Date(Tahun, Bulan-1, Tanggal, Jam, Menit, Detik)
+// Contoh: 15 November 2026 jam 08:00 = new Date(2026, 10, 15, 8, 0, 0)
+const tanggalAcara = new Date(2027, 11, 29, 19, 0, 0).getTime();
+
+const x = setInterval(function() {
+  const sekarang = new Date().getTime();
+  const jarak = tanggalAcara - sekarang;
+
+  const hari = Math.floor(jarak / (1000 * 60 * 60 * 24));
+  const jam = Math.floor((jarak % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const menit = Math.floor((jarak % (1000 * 60 * 60)) / (1000 * 60));
+  const detik = Math.floor((jarak % (1000 * 60)) / 1000);
+
+  // Tampilkan hasil
+  document.getElementById("hari").innerHTML = hari < 10 ? "0" + hari : hari;
+  document.getElementById("jam").innerHTML = jam < 10 ? "0" + jam : jam;
+  document.getElementById("menit").innerHTML = menit < 10 ? "0" + menit : menit;
+  document.getElementById("detik").innerHTML = detik < 10 ? "0" + detik : detik;
+
+  // Jika countdown selesai
+  if (jarak < 0) {
+    clearInterval(x);
+    document.getElementById("countdown").innerHTML = "<h3 style='color:#b08968;'>Acara Sedang Berlangsung ❤️</h3>";
+  }
+}, 1000);
+</script>
+
+    
 <img src="IMG-20260822-WA0047.jpg" alt="Foto Rsvp" class="foto Rsvp">
     
     <h2 style="margin-bottom: 20px;">RSVP Kehadiran</h2>
