@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Undangan Digital</title>
 
+  <!-- IMPORT FONT DARI GOOGLE -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
@@ -12,72 +13,101 @@
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { 
+      background: #fdf6f0; 
       color: #333; 
       text-align: center; 
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Poppins', sans-serif; /* DEFAULT TEKS = POPPINS */
       font-weight: 400;
     }
     
-    /* 1 GAMBAR UNTUK SEMUA SECTION */
     #cover {
-      position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
-      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('Snapinsta.app_277905917_4755537127906885_2639431880101077013_n_1080.jpg') center/cover fixed; /* SUDAH DIPERBAIKI: url bukan src */
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('wine-glass-5705718_640.jpg') center/cover;
       display: flex; flex-direction: column; justify-content: center; align-items: center;
       color: white; z-index: 999; transition: opacity 1s ease;
     }
     #cover h1 { 
-      font-family: 'Playfair Display', serif;
+      font-family: 'Playfair Display', serif; /* JUDUL = PLAYFAIR */
       font-size: 2.8rem; 
       margin-bottom: 10px; 
       font-weight: 700;
     }
+    #cover p { font-size: 1.2rem; font-weight: 300; }
     .btn-buka { 
-      background: #d4a373; color: white; padding: 15px 40px; border: none; 
-      border-radius: 50px; font-size: 1.1rem; cursor: pointer; font-weight: 500;
-      font-family: 'Poppins', sans-serif; margin-top: 20px;
+      background: #d4a373; 
+      color: white; 
+      padding: 15px 40px; 
+      border: none; 
+      border-radius: 50px; 
+      font-size: 1.1rem; 
+      cursor: pointer; 
+      font-weight: 500;
+      font-family: 'Poppins', sans-serif;
+      margin-top: 20px;
     }
 
-    #content { display: none; }
-
-    .section { /* class baru untuk semua section */
-      padding: 80px 20px;
-      background: url('Snapinsta.app_277905917_4755537127906885_2639431880101077013_n_1080.jpg') center/cover fixed; /* SUDAH DIPERBAIKI */
-      background-attachment: fixed;
-    }
-
-    /* Overlay tiap section biar teks kebaca */
-    #profil {
-      background: linear-gradient(rgba(253,246,240,0.85), rgba(253,246,240,0.85)), url('Snapinsta.app_277905917_4755537127906885_2639431880101077013_n_1080.jpg') center/cover fixed;
-    }
-    #countdown-section {
-      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('Snapinsta.app_277905917_4755537127906885_2639431880101077013_n_1080.jpg') center/cover fixed;
-      color: white;
-    }
-    #rsvp {
-      background: linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)), url('Snapinsta.app_277905917_4755537127906885_2639431880101077013_n_1080.jpg') center/cover fixed;
-    }
+    #content { display: none; padding: 40px 20px; max-width: 700px; margin: auto; }
     
-    /* PERBAIKI NAMA CLASS: ga boleh ada spasi */
     .foto-mempelai { width: 200px; height: 200px; border-radius: 50%; object-fit: cover; border: 5px solid #d4a373; margin-bottom: 20px; }
-    .foto-profile { width: 300px; height: 350px; object-fit: cover; border: 5px solid #d4a373; margin-bottom: 20px; border-radius: 12px; } /* ganti jadi kotak biar bagus */
-    .foto-rsvp { width: 300px; height: 350px; object-fit: cover; border: 5px solid #d4a373; margin-bottom: 20px; border-radius: 12px; }
-    .foto { width: 300px; height: 350px; object-fit: cover; border: 5px solid #d4a373; margin-bottom: 20px; border-radius: 12px; }
+   .foto Profile { width: 300px; height: 350px; border-radius: 50%; object-fit: cover; border: 5px solid #d4a373; margin-bottom: 20px; }
+    .foto Rsvp { width: 300px; height: 350px; border-radius: 50%; object-fit: cover; border: 5px solid #d4a373; margin-bottom: 20px; }
+    .foto { width: 300px; height: 350px; border-radius: 50%; object-fit: cover; border: 5px solid #d4a373; margin-bottom: 20px; }
 
-    .nama { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: #b08968; font-weight: 700; margin: 10px 0; }
-    .tanggal { font-size: 1.1rem; margin-bottom: 30px; color: #777; font-weight: 300; }
+
+/* 1 GAMBAR UNTUK SEMUA */
+body {
+  background: url('Snapinsta.app_277905917_4755537127906885_2639431880101077013_n_1080.jpg') center/cover fixed;
+  background-attachment: fixed;
+}
+
+/* Kasih overlay putih/transparan di tiap section biar teks kebaca */
+#cover {
+  height: 100vh;
+  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('Snapinsta.app_277905917_4755537127906885_2639431880101077013_n_1080.jpg') center/cover fixed;
+}
+
+#profil {
+  padding: 80px 20px;
+  background: linear-gradient(rgba(253,246,240,0.85), rgba(253,246,240,0.85)), url('Snapinsta.app_277905917_4755537127906885_2639431880101077013_n_1080.jpg') center/cover fixed;
+}
+
+#countdown-section {
+  padding: 80px 20px;
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('Snapinsta.app_277905917_4755537127906885_2639431880101077013_n_1080.jpg') center/cover fixed;
+  color: white;
+}
+
+#rsvp {
+  padding: 80px 20px;
+  background: linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)), url('Snapinsta.app_277905917_4755537127906885_2639431880101077013_n_1080.jpg') center/cover fixed;
+}
     
-    /* STYLE COUNTDOWN */
-    .countdown-box { background: rgba(255,255,255,0.9); padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin: 30px auto; max-width: 500px; }
-    .countdown-box h3 { font-family: 'Playfair Display', serif; color: #b08968; margin-bottom: 15px; font-size: 1.5rem; }
-    #countdown { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
-    .time { background: #d4a373; color: white; padding: 15px 10px; border-radius: 8px; min-width: 70px; }
-    .time span { display: block; font-size: 1.8rem; font-weight: 700; }
-
-    .form-container { background: white; padding: 15px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); max-width: 700px; margin: auto; }
+    .nama { 
+      font-family: 'Playfair Display', serif; /* NAMA = PLAYFAIR */
+      font-size: 2.5rem; 
+      color: #b08968; 
+      font-weight: 700; 
+      margin: 10px 0;
+    }
+    .tanggal { font-size: 1.1rem; margin-bottom: 30px; color: #777; font-weight: 300; }
+    .ucapan { font-size: 1rem; line-height: 1.8; margin-bottom: 30px; font-weight: 400; }
+    
+    h2 { 
+      font-family: 'Playfair Display', serif; /* SEMUA H2 = PLAYFAIR */
+      color: #b08968; 
+      font-weight: 700;
+    }
+    
+    .form-container { background: white; padding: 15px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
     .iframe-wrapper { width: 100%; min-height: 1300px; }
     .iframe-wrapper iframe { width: 100%; height: 1300px; border: none; }
+    .btn-link { display: block; margin-top: 10px; color: #d4a373; font-weight: 500; text-decoration: none; }
 
-    #btn-musik { position: fixed; bottom: 20px; right: 20px; background: #d4a373; color: white; border: none; width: 50px; height: 50px; border-radius: 50%; font-size: 24px; cursor: pointer; z-index: 1000; display: none; }
+    #btn-musik {
+      position: fixed; bottom: 20px; right: 20px; background: #d4a373;
+      color: white; border: none; width: 50px; height: 50px; border-radius: 50%;
+      font-size: 24px; cursor: pointer; z-index: 1000; display: none;
+    }
     footer { padding:30px; color:#777; font-weight: 300; }
   </style>
 </head>
@@ -90,23 +120,155 @@
   </div>
 
   <div id="content">
-    
-    <!-- TAMBAH ID DI SETIAP SECTION -->
-    <section id="profil" class="section">
-      <img src="IMG-20260822-WA0051.jpg" alt="Foto Mempelai" class="foto-mempelai">
-      <h2 class="nama">Andi & Sinta</h2>
-      <p class="tanggal">Minggu, 29 November 2026</p>
-      <p>Dengan memohon rahmat Allah SWT, kami mengundang Anda</p>
-      <hr style="margin: 40px 0; border: none; border-top: 1px solid #ddd;">
-      <h3 style="color:#b08968;">Lokasi Acara</h3>
-      <p>Gedung Banjar Converter Hall<br>Makassar</p>
-      <img src="IMG-20260822-WA0045.jpg" alt="Foto" class="foto">
-    </section>
+    <img src="IMG-20260822-WA0051.jpg" alt="Foto Mempelai" class="foto-mempelai">
+    <h2 class="nama">Andi & Sinta</h2>
+    <p class="tanggal">Minggu, 29 November 2026</p>
+    <p class="ucapan">Dengan memohon rahmat Allah SWT, <br> kami mengundang Bapak/Ibu/Saudara/i <br> untuk hadir di acara pernikahan kami.</p>
+    <hr style="margin: 40px 0; border: none; border-top: 1px solid #ddd;">
 
-    <section id="countdown-section" class="section">
-      <div class="countdown-box">
-        <h3>Menuju Hari Bahagia</h3>
-        <div id="countdown">
+    <h3 style="color:#b08968;">Lokasi Acara</h3>
+<p>Geduh Banjar Converter Hall<br>Makassar</p>
+<hr style="margin: 40px 0; border: none; border-top: 1px solid #ddd;">
+
+    <img src="IMG-20260822-WA0045.jpg" alt="Foto" class="foto">
+
+     <h3 style="color:#b08968;">Ayat Al-Qur'an</h3>
+<p>وَمِنْ اٰيٰتِهٖٓ اَنْ خَلَقَ لَكُمْ مِّنْ اَنْفُسِكُمْ اَزْوَاجًا لِّتَسْكُنُوْٓا اِلَيْهَا وَجَعَلَ بَيْنَكُمْ مَّوَدَّةً وَّرَحْمَةًۗ اِنَّ فِيْ ذٰلِكَ لَاٰيٰتٍ لِّقَوْمٍ يَّتَفَكَّرُوْنَ ۝٢١ <br>Di antara tanda-tanda (kebesaran)-Nya ialah bahwa Dia menciptakan pasangan-pasangan untukmu dari (jenis) dirimu sendiri agar kamu merasa tenteram kepadanya. Dia menjadikan di antaramu rasa cinta dan kasih sayang. Sesungguhnya pada yang demikian itu benar-benar terdapat tanda-tanda (kebesaran Allah) bagi kaum yang berpikir.</p>
+<br>Al-Qur'an Surah Ar-Rum ayat 21 </p>
+    <hr style="margin: 40px 0; border: none; border-top: 1px solid #ddd;">
+
+    <img src="IMG-20260822-WA0050.jpg" alt="Foto Profile" class="foto Profile">
+
+     <h3 style="color:#b08968;">Profile Pengantin</h3>
+<p>Profile Mempelai Pria	<br>Nama Lengkap</p>	<br>Putra dari Bapak & Ibu</p>	<br>Profile Mempelai Wanita</p>	<br>Nama Lengkap</p>	<br>Putri dari Bapak & Ibu</p>
+    <hr style="margin: 40px 0; border: none; border-top: 1px solid #ddd;">
+
+<!-- HTML COUNTDOWN -->
+<div class="countdown-box">
+  <h3>Menuju Hari Bahagia</h3>
+  <div id="countdown">
+    <div class="time"><span id="hari">00</span><small>Hari</small></div>
+    <div class="time"><span id="jam">00</span><small>Jam</small></div>
+    <div class="time"><span id="menit">00</span><small>Menit</small></div>
+    <div class="time"><span id="detik">00</span><small>Detik</small></div>
+  </div>
+</div>
+
+<!-- CSS COUNTDOWN -->
+<style>
+.countdown-box {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  margin: 30px 0;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+}
+.countdown-box h3 {
+  font-family: 'Playfair Display', serif;
+  color: #b08968;
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+}
+#countdown {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap; /* biar rapi di HP */
+}
+.time {
+  background: #d4a373;
+  color: white;
+  padding: 15px 10px;
+  border-radius: 8px;
+  min-width: 70px;
+}
+.time span { 
+  display: block; 
+  font-size: 1.8rem; 
+  font-weight: 700; 
+}
+.time small { 
+  font-size: 0.8rem; 
+  font-weight: 300; 
+}
+</style>
+
+<!-- JAVASCRIPT COUNTDOWN -->
+<script>
+// GANTI TANGGAL ACARA DI SINI
+// Format: new Date(Tahun, Bulan-1, Tanggal, Jam, Menit, Detik)
+// Contoh: 15 November 2026 jam 08:00 = new Date(2026, 10, 15, 8, 0, 0)
+const tanggalAcara = new Date(2027, 11, 29, 19, 0, 0).getTime();
+
+const x = setInterval(function() {
+  const sekarang = new Date().getTime();
+  const jarak = tanggalAcara - sekarang;
+
+  const hari = Math.floor(jarak / (1000 * 60 * 60 * 24));
+  const jam = Math.floor((jarak % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const menit = Math.floor((jarak % (1000 * 60 * 60)) / (1000 * 60));
+  const detik = Math.floor((jarak % (1000 * 60)) / 1000);
+
+  // Tampilkan hasil
+  document.getElementById("hari").innerHTML = hari < 10 ? "0" + hari : hari;
+  document.getElementById("jam").innerHTML = jam < 10 ? "0" + jam : jam;
+  document.getElementById("menit").innerHTML = menit < 10 ? "0" + menit : menit;
+  document.getElementById("detik").innerHTML = detik < 10 ? "0" + detik : detik;
+
+  // Jika countdown selesai
+  if (jarak < 0) {
+    clearInterval(x);
+    document.getElementById("countdown").innerHTML = "<h3 style='color:#b08968;'>Acara Sedang Berlangsung ❤️</h3>";
+  }
+}, 1000);
+</script>
+
+    
+<img src="IMG-20260822-WA0047.jpg" alt="Foto Rsvp" class="foto Rsvp">
+    
+    <h2 style="margin-bottom: 20px;">RSVP Kehadiran</h2>
+    <div class="form-container">
+      <div class="iframe-wrapper">
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfwvSaSDbl5eOLO5cM_pOx2OCgB-Vd5IPyX1vqBI_1WmZiFzQ/viewform?embedded=true"></iframe>
+      </div>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSfwvSaSDbl5eOLO5cM_pOx2OCgB-Vd5IPyX1vqBI_1WmZiFzQ/viewform" target="_blank" class="btn-link">Form tidak muncul? Klik di sini</a>
+    </div>
+    <footer><p>Merupakan suatu kehormatan dan kebahagiaan bagi kami	<br>apabila Bapak/Ibu/Saudara/i berkenan hadir</p>	<br>Atas kehadiran dan do’a restunya, kami ucapkan terima kasih</p>	<br>wassalamu’alaikum Warahmatullahi Wabarakatuh</p></p></footer>
+  </div>
+
+  <button id="btn-musik" onclick="toggleMusik()">🔊</button>
+  <audio id="musik" loop preload="auto"></audio>
+
+  <script>
+    let musikNyala = true;
+    const audio = document.getElementById('musik');
+
+    function bukaUndangan() {
+      document.getElementById('cover').style.opacity = '0';
+      setTimeout(() => {
+        document.getElementById('cover').style.display = 'none';
+        document.getElementById('content').style.display = 'block';
+        document.getElementById('btn-musik').style.display = 'block';
+      }, 1000);
+
+      audio.src = "Ten2Five - Hanya Untukmu (Official Music Video) - GP Records128kb.mp3"; 
+      audio.play().catch(error => {
+        console.log("Musik gagal:", error);
+        document.getElementById('btn-musik').innerHTML = "❌";
+      });
+    }
+
+    function toggleMusik() {
+      const btn = document.getElementById('btn-musik');
+      if (musikNyala) { audio.pause(); btn.innerHTML = "🔇"; musikNyala = false; } 
+      else { audio.play(); btn.innerHTML = "🔊"; musikNyala = true; }
+    }
+  </script>
+
+</body>
+</html>        <div id="countdown">
           <div class="time"><span id="hari">00</span><small>Hari</small></div>
           <div class="time"><span id="jam">00</span><small>Jam</small></div>
           <div class="time"><span id="menit">00</span><small>Menit</small></div>
