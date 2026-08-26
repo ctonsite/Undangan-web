@@ -1,62 +1,99 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Undangan</title>
-<style>
-  body{margin:0; text-align:center; padding:60px 20px; font-family:sans-serif; background:#FDFBF7}
-  .btn{background:#C9A961; color:white; padding:16px 32px; border-radius:50px; border:none; cursor:pointer; font-size:18px; font-weight:bold}
-  .btn2{background:#8B7355; color:white; padding:14px 28px; border-radius:50px; border:none; cursor:pointer; font-size:16px; font-weight:bold; margin-top:15px}
-  #player{position:absolute; width:1px; height:1px; overflow:hidden}
-  #cover{position:fixed; top:0; left:0; width:100%; height:100%; background:#FDFBF7; display:flex; justify-content:center; align-items:center; z-index:999}
-  #isi{padding-top:40px; display:none;}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Undangan Digital</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+    body { background: #fdf6f0; color: #333; }
+    
+    /* Halaman Pembuka */
+    #cover {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80') center/cover;
+      display: flex; flex-direction: column; justify-content: center; align-items: center;
+      color: white; text-align: center; z-index: 999;
+      transition: opacity 1s ease;
+    }
+    #cover h1 { font-size: 2.5rem; margin-bottom: 10px; }
+    #cover p { font-size: 1.2rem; margin-bottom: 30px; }
+    .btn-buka {
+      background: #d4a373; color: white; padding: 15px 40px; border: none;
+      border-radius: 50px; font-size: 1.1rem; cursor: pointer; font-weight: bold;
+      transition: transform 0.2s;
+    }
+    .btn-buka:hover { transform: scale(1.05); background: #c98a5d; }
+
+    /* Isi Undangan */
+    #content {
+      display: none; /* disembunyikan dulu */
+      padding: 40px 20px;
+      max-width: 800px;
+      margin: auto;
+      animation: fadeIn 1.5s;
+    }
+    @keyframes fadeIn { from {opacity: 0;} to {opacity: 1;} }
+    h2 { text-align: center; color: #b08968; margin-bottom: 20px; }
+    
+    /* Iframe Google Form */
+    .form-container {
+      background: white; padding: 20px; border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    iframe { width: 100%; border: none; border-radius: 8px; }
+
+    footer { text-align: center; padding: 30px; color: #777; }
+  </style>
 </head>
 <body>
 
-<div id="cover">
-  <div>
-    <div id="player">
-      <iframe width="1" height="1" 
-      src="https://www.youtube.com/embed/--FGrXJjPqk?autoplay=1&mute=1&loop=1&playlist=--FGrXJjPqk" 
-      frameborder="0" allow="autoplay"></iframe>
-    </div>
-    
-    <h2 style="color:#C9A961;">Undangan Pernikahan</h2>
-    <button class="btn" onclick="bukaUndangan()">🎵 BUKA UNDANGAN</button>
+  <!-- HALAMAN 1: COVER + TOMBOL -->
+  <div id="cover">
+    <h1>Undangan Pernikahan</h1>
+    <p>Kami mengundang Anda</p>
+    <button class="btn-buka" onclick="bukaUndangan()">Buka Undangan</button>
   </div>
-</div>
 
-<div id="isi">
-  <h1>Terima Kasih Sudah Datang</h1>
-  <p>Silakan buka undangan lengkap di bawah</p>
-  <button class="btn2" onclick="keGoogleSites()">📜 Buka Undangan Lengkap</button>
-  <p style="font-size:12px; color:#666;">Musik akan tetap jalan di halaman ini</p>
-</div>
+  <!-- HALAMAN 2: ISI + GOOGLE FORM + MUSIK -->
+  <div id="content">
+    <h2>RSVP Kehadiran</h2>
+    <p style="text-align:center; margin-bottom:20px;">Mohon konfirmasi kehadiran Anda melalui form di bawah ini 🙏</p>
+    
+    <div class="form-container">
+      <!-- INI GOOGLE FORM KAMU -->
+      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfwvSaSDbl5eOLO5cM_pOx2OCgB-Vd5IPyX1vqBI_1WmZiFzQ/viewform?embedded=true" 
+        height="1200">
+        Memuat...
+      </iframe>
+    </div>
 
-<script>
-  function bukaUndangan(){
-    // 1. Unmute musik
-    document.querySelector('iframe').src = "https://www.youtube.com/embed/--FGrXJjPqk?autoplay=1&loop=1&playlist=--FGrXJjPqk";
-    // 2. Hilangkan cover
-    document.getElementById('cover').style.display = 'none';
-    // 3. Munculkan isi + tombol ke Google Sites
-    document.getElementById('isi').style.display = 'block';
-  }
+    <footer>
+      <p>Terima Kasih ❤️</p>
+    </footer>
+  </div>
 
-  <section id="rsvp">
-  <h2>RSVP Acara</h2>
-  <p>Mohon konfirmasi kehadiran kamu ya 🙏</p>
-  
-  <!-- Ganti link ini dengan link Google Form kamu -->
-  <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfwvSaSDbl5eOLO5cM_pOx2OCgB-Vd5IPyX1vqBI_1WmZiFzQ/viewform?embedded=true" 
-    width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0">
-    Memuat…
+  <!-- MUSIK LATAR DARI YOUTUBE -->
+  <iframe id="music" width="0" height="0" 
+    src="" 
+    frameborder="0" 
+    allow="autoplay">
   </iframe>
-  
-  <h3>Tally Kehadiran</h3>
-  <p>Lihat rekap jawaban di: <a href="LINK_GOOGLE_SHEET_KAMU" target="_blank">Google Sheets</a></p>
-</section>
-</script>
+
+  <script>
+    function bukaUndangan() {
+      // 1. Sembunyikan cover
+      document.getElementById('cover').style.opacity = '0';
+      setTimeout(() => {
+        document.getElementById('cover').style.display = 'none';
+        document.getElementById('content').style.display = 'block';
+      }, 1000);
+
+      // 2. Putar musik youtube. ID videonya: --FGrXJjPqk
+      // autoplay=1 biar langsung jalan, loop=1 biar ngulang, playlist=ID biar bisa loop
+      document.getElementById('music').src = "https://www.youtube.com/embed/--FGrXJjPqk?autoplay=1&loop=1&playlist=--FGrXJjPqk&controls=0";
+    }
+  </script>
+
 </body>
 </html>
